@@ -18,8 +18,8 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
     this.columns = this.atService.getColumns(); 
-    //["name", "age", "species", "occupation"]
-    this.characters = this.atService.getCharacters();
+    //["Block","Sender","Recipient","Amount"]
+    this.characters = this.atService.getChain();
     //all data in mock-data.ts
   }
 

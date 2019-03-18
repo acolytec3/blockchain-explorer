@@ -58,7 +58,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "blockchain-explorer:build"
+            "browserTarget": "blockchain-explorer:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

@@ -33,7 +33,7 @@ constructor(private http: HttpClient) { }
 getChain(): Observable<any[]>{
   
     var chain : any[] = [];
-    this.http.get('/chain').subscribe(data => {
+    this.http.get<Chain>('/chain').subscribe(data => {
     
 		for (let i = 0; i < data.chain.length; i++){
 		  if( data.chain[i].transactions !== []){

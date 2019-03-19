@@ -51,5 +51,5 @@ getChain(): Observable<any[]>{
   return of(chain).pipe(delay(100));
 }
 getColumns(): string[]{
-  return ["Block", "Sender", "Receiver", "Amount"]};
+  return ["Block", "Sender", "Recipient", "Amount"]};
  }

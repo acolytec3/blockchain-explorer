@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { blockchainExplorerService } from '../blockchain-explorer.service';
 import { Observable } from 'rxjs';
+import { Chain } from '../blockchain-explorer.service';
 
 @Component({
   selector: 'app-table',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 
 export class TableComponent implements OnInit {
 
-  characters: Observable<any[]>;
+  characters: Observable<Chain[]>;
   columns: string[];
 
   constructor(private atService: blockchainExplorerService) { }
@@ -20,7 +21,6 @@ export class TableComponent implements OnInit {
     this.columns = this.atService.getColumns(); 
     //["Block","Sender","Recipient","Amount"]
     this.characters = this.atService.getChain();
-    //all data in mock-data.ts
   }
 
 }

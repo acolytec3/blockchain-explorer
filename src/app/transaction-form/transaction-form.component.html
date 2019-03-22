@@ -3,18 +3,27 @@
   <form (ngSubmit)="onSubmit()" #transactionForm="ngForm">
     <div class="form-group">
       <label for="Sender">Sender</label>
-      <input type="text" class="form-control" id="Sender" required [(ngModel)]="model.sender" name="Sender">
+      <input type="text" class="form-control" id="Sender" required [(ngModel)]="model.sender" name="Sender" #Sender="ngModel">
+      <div
+        [hidden]="Sender.valid || Sender.pristine"
+        class="alert alert-danger">
+        Sender is required
+      </div>
     </div>
-
 
     <div class="form-group">
       <label for="Recipient">Recipient</label>
-      <input type="text" class="form-control" id="Recipient" required [(ngModel)]="model.recipient" name="Recipient">
+      <input type="text" class="form-control" id="Recipient" required [(ngModel)]="model.recipient" name="Recipient" #Recipient="ngModel">
+      <div
+      [hidden]="Recipient.valid || Recipient.pristine"
+      class="alert alert-danger">
+      Recipient is required
+    </div>   
     </div>
 
     <div class="form-group">
       <label for="Amount">Amount</label>
-      <input type="number" class="form-control" id="Amount" required [(ngModel)]="model.amount" name="Amount">
+      <input type="number" step="any" class="form-control" id="Amount" required [(ngModel)]="model.amount" name="Amount" #Amount="ngModel">       
     </div>
     <button type="submit" class="btn btn-success"[disabled]="!transactionForm.form.valid">Submit</button>
 

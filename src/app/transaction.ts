@@ -1,7 +1,7 @@
 export class Transaction {
     constructor(
-    public Sender: string,
-    public Recipient: string,
-    public Amount: number,
+    public sender: string,
+    public recipient: string,
+    public amount: number,
     ){}
 }

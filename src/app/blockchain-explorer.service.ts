@@ -51,9 +51,12 @@ getChain(): Observable<any[]>{
   return of(chain).pipe(delay(100));
 }
 getColumns(): string[]{
-  return ["Block", "Sender", "Recipient", "Amount"]};
-postTransaction(transaction: Transaction): string {
-  this.http.post<Transaction>('/transactions/new',
+  return ["Block", "Sender", "Recipient", "Amount"]
+}
+
+postTransaction(transaction: Transaction): string{
+  var message: string = '';
+  this.http.post<any>('/transactions/new',
   {
     sender: transaction.sender,
     recipient: transaction.recipient,
@@ -61,9 +64,10 @@ postTransaction(transaction: Transaction): string {
   })
   .subscribe(data =>{ 
 	console.log(data);
-	return "transacted!";
-	}) 
+  message = data.message;
+  }) 
+  return message;
  }
 } 
 
-}
+

@@ -9,7 +9,7 @@ import { blockchainExplorerService } from '../blockchain-explorer.service';
 })
 export class TransactionFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private atService: blockchainExplorerService) { }
 
   ngOnInit() {
   }
@@ -19,6 +19,7 @@ export class TransactionFormComponent implements OnInit {
 
   onSubmit(){ 
     this.submitted = true;
+    this.atService.postTransaction(this.model);
 
   }
 

@@ -10,14 +10,15 @@ import { Observable } from 'rxjs';
 })
 export class TransactionFormComponent implements OnInit {
 
+ 
   constructor(private atService: blockchainExplorerService) { }
 
   ngOnInit() {
   }
-  
+  transactionMessage: Observable<any>;
   submitted = false;
   model = new Transaction('ABC','DEF',1);
-  transactionMessage :Observable<string>;
+  
   onSubmit(){ 
     this.submitted = true;
     this.transactionMessage = this.atService.postTransaction(this.model);

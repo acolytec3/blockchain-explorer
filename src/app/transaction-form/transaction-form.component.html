@@ -30,7 +30,7 @@
 
   </form>
 </div>
-<div [hidden]="!submitted">
-  {{ transactionMessage | async}}
+<div [hidden] = "!submitted">
+  {{ transactionMessage.message | async}}
 </div>
 </div>

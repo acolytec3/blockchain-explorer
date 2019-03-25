@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../transaction';
 import { blockchainExplorerService } from '../blockchain-explorer.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-transaction-form',
@@ -16,13 +17,11 @@ export class TransactionFormComponent implements OnInit {
   
   submitted = false;
   model = new Transaction('ABC','DEF',1);
-
+  transactionMessage :Observable<string>;
   onSubmit(){ 
     this.submitted = true;
-    this.atService.postTransaction(this.model);
+    this.transactionMessage = this.atService.postTransaction(this.model);
+    console.log(this.transactionMessage);
 
   }
-
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
 }

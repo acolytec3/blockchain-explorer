@@ -1,4 +1,5 @@
 <div class="container">
+  <div [hidden]="submitted">
   <h1>Transaction Form</h1>
   <form (ngSubmit)="onSubmit()" #transactionForm="ngForm">
     <div class="form-group">
@@ -28,4 +29,8 @@
     <button type="submit" class="btn btn-success"[disabled]="!transactionForm.form.valid">Submit</button>
 
   </form>
+</div>
+<div [hidden]="!submitted">
+  {{ transactionMessage | async}}
+</div>
 </div>

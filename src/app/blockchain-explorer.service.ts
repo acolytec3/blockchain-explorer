@@ -54,7 +54,7 @@ getColumns(): string[]{
   return ["Block", "Sender", "Recipient", "Amount"]
 }
 
-postTransaction(transaction: Transaction): string{
+postTransaction(transaction: Transaction): Observable<any>{
   var message: string = '';
   this.http.post<any>('/transactions/new',
   {
@@ -63,10 +63,10 @@ postTransaction(transaction: Transaction): string{
     amount: transaction.amount
   })
   .subscribe(data =>{ 
-	console.log(data);
   message = data.message;
+  console.log(message);
   }) 
-  return message;
+  return of(message);
  }
 } 
 

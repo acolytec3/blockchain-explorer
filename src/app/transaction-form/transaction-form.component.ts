@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../transaction';
 import { blockchainExplorerService } from '../blockchain-explorer.service';
 import { Observable } from 'rxjs';
-
+import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-transaction-form',
   templateUrl: './transaction-form.component.html',
@@ -21,8 +21,8 @@ export class TransactionFormComponent implements OnInit {
   
   onSubmit(){ 
     this.submitted = true;
-    this.transactionMessage = this.atService.postTransaction(this.model);
-    console.log(this.transactionMessage);
+    this.transactionMessage = this.atService.postTransaction(this.model).pipe(tap(data => console.log(data.message)));
+//    console.log(this.transactionMessage);
 
   }
 }

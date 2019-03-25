@@ -62,9 +62,7 @@ postTransaction(transaction: Transaction): Observable<any>{
     recipient: transaction.recipient,
     amount: transaction.amount
   })
-  .subscribe(data =>{ 
-  console.log(message);
-  }) 
+
 //  return of<string>(message);
  }
 } 

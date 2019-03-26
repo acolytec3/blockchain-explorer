@@ -26,7 +26,7 @@ export class TransactionFormComponent implements OnInit {
   onSubmit(){ 
     this.submitted = true;
     this.response = this.atService.postTransaction(this.model).pipe(tap(data => console.log(data.message)));
-//    console.log(this.transactionMessage);
+
 
   }
 }

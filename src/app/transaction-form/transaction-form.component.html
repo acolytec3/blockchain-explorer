@@ -31,6 +31,6 @@
   </form>
 </div>
 <div [hidden] = "!submitted">
-  {{ transactionMessage.message | async}}
+  {{ (response | async)?.message}}
 </div>
 </div>

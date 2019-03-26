@@ -6,6 +6,7 @@ import { TransactionFormComponent } from './transaction-form/transaction-form.co
 const routes: Routes = [
   {path: 'blockchain', component: TableComponent},
   {path: 'transaction',component: TransactionFormComponent},
+  {path: '', redirectTo: '/blockchain', pathMatch: 'full'},
 ];
 
 @NgModule({

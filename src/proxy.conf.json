@@ -8,5 +8,10 @@
 		"target": "http://localhost:5000",
 		"secure": false,
 		"loglevel": "debug"
+	},
+	"/mine/*" : {
+		"target": "http://localhost:5000",
+		"secure": false,
+		"loglevel": "debug"
 	}
 }

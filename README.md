@@ -1,6 +1,6 @@
 # Nanobit Blockchain Explorer - Angular Edition
 
-This is an Angularized version of the nanobitcoin blockchain explorer intended to be used with [Nanobitcoin](https://github.com/acolytec3/nanobitcoin)
+This is an Angularized nanobitcoin blockchain explorer intended to be used with [Nanobitcoin](https://github.com/acolytec3/nanobitcoin)
 
 ## Usage
 

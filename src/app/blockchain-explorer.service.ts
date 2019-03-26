@@ -62,8 +62,9 @@ postTransaction(transaction: Transaction): Observable<any>{
     recipient: transaction.recipient,
     amount: transaction.amount
   })
-
-//  return of<string>(message);
+ }
+mineBlock(): Observable<any>{
+   return this.http.get<any>('/mine');
  }
 } 
 

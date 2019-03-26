@@ -20,13 +20,14 @@ export class TransactionFormComponent implements OnInit {
   ngOnInit() {
   }
   response: Observable<transactionMessage>;
+  blockMined: Observable<any>;
   submitted = false;
   model = new Transaction('ABC','DEF',1);
   
   onSubmit(){ 
     this.submitted = true;
     this.response = this.atService.postTransaction(this.model).pipe(tap(data => console.log(data.message)));
-
+    this.blockMined = this.atService.mineBlock().pipe(tap(data => console.log(data)));
 
   }
 }

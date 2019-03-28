@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     TableComponent,
     TransactionFormComponent,
+    DashboardComponent,
 
   ],
   imports: [

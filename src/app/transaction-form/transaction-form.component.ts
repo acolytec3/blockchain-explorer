@@ -32,6 +32,7 @@ export class TransactionFormComponent implements OnInit {
         return of<transactionMessage>({message: 'Transaction failed'});
     }
     ));
+    console.log('hello');
     this.blockMined = this.atService.mineBlock().pipe(tap(data => console.log(data)));
 
   }

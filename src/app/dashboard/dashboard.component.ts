@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { blockchainExplorerService } from '../blockchain-explorer.service';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private atService: blockchainExplorerService) { }
 
   ngOnInit() {
+    this.atService.mineBlock().pipe(tap(data => console.log(data)));
   }
-
+  blockMined: Observable<any>;
+  onClick(){
+    console.log('clicked');
+    this.blockMined = this.atService.mineBlock().pipe(tap(data => console.log(data)));
+    console.log(this.blockMined);
+  }
 }

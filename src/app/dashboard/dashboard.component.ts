@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { blockchainExplorerService } from '../blockchain-explorer.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Component({
@@ -16,11 +16,13 @@ export class DashboardComponent implements OnInit {
     this.atService.mineBlock().pipe(tap(data => console.log(data)));
   }
   blockMined: Observable<any>;
+  minedSubscription: Subscription;
   onClick(){
     console.log('clicked');
-    this.blockMined = this.atService.mineBlock().subscribe(response => console.log(response));
+    this.blockMined = this.atService.mineBlock();
+    this.blockMined.subscribe(response => console.log(response));
   }
   ngOnDestroy(){
-    this.blockMined.unsubscribe();
+    this.minedSubscription.unsubscribe();
   }
 }

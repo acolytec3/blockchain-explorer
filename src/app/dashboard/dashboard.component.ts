@@ -18,8 +18,7 @@ export class DashboardComponent implements OnInit {
   blockMined: Observable<any>;
   onClick(){
     console.log('clicked');
-    this.blockMined = this.atService.mineBlock().pipe(tap(data => console.log(data))
-    .subscribe(response => console.log(response)));
+    this.blockMined = this.atService.mineBlock().subscribe(response => console.log(response));
   }
   ngOnDestroy(){
     this.blockMined.unsubscribe();
